@@ -1,14 +1,11 @@
 <?php
-include 'session.php';
+include 'session.php'
 ?>
-</style>
 <!DOCTYPE html>
 <html>
-
-	
-	<head>
-	<style type="text/css">
-	ul {
+<head>
+<style>
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -57,18 +54,15 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-	</style>
-
-		<title>CareEcosystem</title>
-		<header>
-		<img margin:auto src="C:\wamp64\www\cmsfmphp-master\CareEcosystemLogo_web_0.png"/>
-		</header>
-		</p>
-
-	</head>
+</style>
 <body>
+<header>
+   <img margin:auto src="C:\wamp64\www\cmsfmphp-master\CareEcosystemLogo_web_0.png"/>
+</header>
+<title>Add: Watch Database</title>
 <ul>
   <li><a class="active" href="welcomePage.php">Home</a></li>
+  <li><a href="misc2.php">Misc</a></li>
   <li class="dropdown">
     <a href="#" class="dropbtn">Search</a>
     <div class="dropdown-content">
@@ -91,8 +85,40 @@ li.dropdown {
   </li>
     <li><a href="index">Log Out</a></li>
 </ul>
+</style>
+</head>
 
-</body>
+
+
+
+<?php
+
+//DATABASE CREDENTIALS
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+
+// database
+$dbname = "cmsfm";
+
+	$watchdceid = (isset($_POST["watchDCEID"])) ? $_POST["watchDCEID"] : "";
+	$watchmacadd = (isset($_POST["MACAddress"])) ? $_POST["MACAddress"] : "";	
+	$watchdevname = (isset($_POST["DeviceName"])) ? $_POST["DeviceName"] : "";	
+	$watchnumber = (isset($_POST["WANumber"])) ? $_POST["WANumber"] : "";
+?>
+
+<form method="post" action="addwatch.php">
+<b>Insert data into Equipment-Watches:</b></p>
+DCE ID: <input name="watchDCEID" type="text" value="<?=$watchdceid?>"/>
+MAC Address: <input name="MACAddress" type="text" value="<?=$watchmacadd?>"/>
+Device Name: <input name="DeviceName" type="text" value="<?=$watchdevname?>"/>
+WA Number: <input name="WANumber" type="text" value="<?=$watchnumber?>"/></p>
+Please check your entries before clicking 'Insert'. Changes to submitted data must be made by the system administrator.<br>
+<input type="submit" value="Insert"/></p>
+</form>
+</p>
+</form>
+
+
 </html>
-
 
