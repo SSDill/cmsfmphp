@@ -1,14 +1,11 @@
 <?php
-include 'session.php';
+include 'session.php'
 ?>
-</style>
 <!DOCTYPE html>
 <html>
-
-	
-	<head>
-	<style type="text/css">
-	ul {
+<head>
+<style>
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -57,18 +54,15 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-	</style>
-
-		<title>CareEcosystem</title>
-		<header>
-		<img margin:auto src="C:\wamp64\www\cmsfmphp-master\CareEcosystemLogo_web_0.png"/>
-		</header>
-		</p>
-
-	</head>
+</style>
 <body>
+<header>
+   <img margin:auto src="C:\wamp64\www\cmsfmphp-master\CareEcosystemLogo_web_0.png"/>
+</header>
+<title>Add: Document Database</title>
 <ul>
   <li><a class="active" href="welcomePage.php">Home</a></li>
+  <li><a href="misc2.php">Misc</a></li>
   <li class="dropdown">
     <a href="#" class="dropbtn">Search</a>
     <div class="dropdown-content">
@@ -91,8 +85,40 @@ li.dropdown {
   </li>
     <li><a href="index">Log Out</a></li>
 </ul>
+</style>
+</head>
 
-</body>
+
+
+
+<?php
+
+//DATABASE CREDENTIALS
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+
+// database
+$dbname = "cmsfm";
+	$doctitle = (isset($_POST["docTitle"])) ? $_POST["docTitle"] : "";
+	$docauthor = (isset($_POST["docAuthor"])) ? $_POST["docAuthor"] : "";
+	$docloc = (isset($_POST["docLocation"])) ? $_POST["docLocation"] : "";	
+	$doclink = (isset($_POST["docLink"])) ? $_POST["docLink"] : "";
+?>
+
+<!---Form-->
+<form method="post" action="adddoc.php">
+</p>
+<b>Insert data into Documents:</b> </p>
+Title: <input name="docTitle" type="text" value="<?=$doctitle?>"/>
+Author: <input name="docAuthor" type="text" value="<?=$docauthor?>"/>
+Location: <input name="docLocation" type="text" value="<?=$docloc?>"/>
+Link: <input name="docLink" type="text" value="<?=$doclink?>"/> </p>
+Please check your entries before clicking 'Insert'. Changes to submitted data must be made by the system administrator.<br>
+<input type="submit" value="Insert"/></p> </form>
+
+</form>
+
+
 </html>
-
 

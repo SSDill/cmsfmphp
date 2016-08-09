@@ -1,14 +1,11 @@
 <?php
-include 'session.php';
+include 'session.php'
 ?>
-</style>
 <!DOCTYPE html>
 <html>
-
-	
-	<head>
-	<style type="text/css">
-	ul {
+<head>
+<style>
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -57,18 +54,15 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-	</style>
-
-		<title>CareEcosystem</title>
-		<header>
-		<img margin:auto src="C:\wamp64\www\cmsfmphp-master\CareEcosystemLogo_web_0.png"/>
-		</header>
-		</p>
-
-	</head>
+</style>
 <body>
+<header>
+   <img margin:auto src="C:\wamp64\www\cmsfmphp-master\CareEcosystemLogo_web_0.png"/>
+</header>
+<title>Add: EStimote Database</title>
 <ul>
   <li><a class="active" href="welcomePage.php">Home</a></li>
+  <li><a href="misc2.php">Misc</a></li>
   <li class="dropdown">
     <a href="#" class="dropbtn">Search</a>
     <div class="dropdown-content">
@@ -91,8 +85,36 @@ li.dropdown {
   </li>
     <li><a href="index">Log Out</a></li>
 </ul>
+</style>
+</head>
 
-</body>
+
+
+
+<?php
+
+//DATABASE CREDENTIALS
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+
+// database
+$dbname = "cmsfm";
+	$estdceid = (isset($_POST["EstimoteDCEID"])) ? $_POST["EstimoteDCEID"] : "";	
+	$estmacadd = (isset($_POST["EstimoteMACAddress"])) ? $_POST["EstimoteMACAddress"] : "";
+	$estmajid = (isset($_POST["EstimoteMajorID"])) ? $_POST["EstimoteMajorID"] : "";
+	$estminid = (isset($_POST["EstimoteMinorID"])) ? $_POST["EstimoteMinorID"] : "";
+?>
+<form method="post" action="addest.php">
+<b>Insert data into Equipment-Estimotes:</b></p>
+DCE ID: <input name="EstimoteDCEID" type="text" value="<?=$estdceid?>"/>
+MAC Address: <input name="EstimoteMACAddress" type="text" value="<?=$estmacadd?>"/>
+Major ID: <input name="EstimoteMajorID" type="text" value="<?=$estmajid?>"/>
+Minor ID: <input name="EstimoteMinorID" type="text" value="<?=$estminid?>"/></p>
+Please check your entries before clicking 'Insert'. Changes to submitted data must be made by the system administrator.<br>
+<input type="submit" value="Insert"/></p>
+</p>
+</form>
+
 </html>
-
 

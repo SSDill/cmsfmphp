@@ -1,14 +1,11 @@
 <?php
-include 'session.php';
+include 'session.php'
 ?>
-</style>
 <!DOCTYPE html>
 <html>
-
-	
-	<head>
-	<style type="text/css">
-	ul {
+<head>
+<style>
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -57,18 +54,15 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-	</style>
-
-		<title>CareEcosystem</title>
-		<header>
-		<img margin:auto src="C:\wamp64\www\cmsfmphp-master\CareEcosystemLogo_web_0.png"/>
-		</header>
-		</p>
-
-	</head>
+</style>
 <body>
+<header>
+   <img margin:auto src="C:\wamp64\www\cmsfmphp-master\CareEcosystemLogo_web_0.png"/>
+</header>
+<title>Add: Literature Database</title>
 <ul>
   <li><a class="active" href="welcomePage.php">Home</a></li>
+  <li><a href="misc2.php">Misc</a></li>
   <li class="dropdown">
     <a href="#" class="dropbtn">Search</a>
     <div class="dropdown-content">
@@ -91,8 +85,41 @@ li.dropdown {
   </li>
     <li><a href="index">Log Out</a></li>
 </ul>
+</style>
+</head>
 
-</body>
+
+
+
+<?php
+
+//DATABASE CREDENTIALS
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+
+// database
+$dbname = "cmsfm";
+
+	$littitle = (isset($_POST["litTitle"])) ? $_POST["litTitle"] : "";
+	$litauthor = (isset($_POST["litAuthor"])) ? $_POST["litAuthor"] : "";	
+	$litpubyear = (isset($_POST["litPublicationYear"])) ? $_POST["litPublicationYear"] : "";	
+	$litlink = (isset($_POST["litLink"])) ? $_POST["litLink"] : "";	
+?>
+
+<form method="post" action="addlit.php">
+</p>
+<b>Insert data into Literature:</b></p>
+Title: <input name="litTitle" type="text" value="<?=$littitle?>"/>
+Author: <input name="litAuthor" type="text" value="<?=$litauthor?>"/>
+Publication Year: <input name="litPublicationYear" type="text" value="<?=$litpubyear?>"/>
+Link: <input name="litLink" type="text" value="<?=$litlink?>"/></p>
+Please check your entries before clicking 'Insert'. Changes to submitted data must be made by the system administrator.<br>
+<input type="submit" value="Insert"/></p>
+</form>
+</p>
+</form>
+
+
 </html>
-
 
